@@ -215,6 +215,9 @@ var new_game = function(){
         while (bet > chips){
                 bet=prompt("Not enough chips. You have " + chips + " chips. Please enter your bet","0");
         }
+        while (bet < 0){
+        	bet=prompt("Nice try! You can't bet a negative quantity.  Please enter your bet", "0")
+        }
         chips -= bet;
 
         document.getElementById("record").rows[0].innerHTML = "Chips = " + chips
