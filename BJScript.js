@@ -248,7 +248,7 @@ var write_to_screen = function(){
 
 		gameOver = true
 
-		chips += bet;
+		chips += bet * 1; //Must convert from string
 
 	};		
 
@@ -277,14 +277,7 @@ var new_game = function(){
 	document.getElementById("record").rows[1].cells[0].innerHTML = "Wins"
 
 	document.getElementById("record").rows[1].cells[1].innerHTML = "Loses"
-
-	document.getElementById("record").rows[2].cells[0].innerHTML = 0
-
-	document.getElementById("record").rows[2].cells[1].innerHTML = 0
-
-	winsLosses[0] = 0
-
-	winsLosses[1] = 0
+	//removed reset of Win/Loss record (moved to below so it only resets on the first hand)
 
 	//Gets the bet. If they press cancel or submit 0 there is no bet
 
@@ -394,8 +387,11 @@ if(CheckBJ(YourHand) === true && CheckBJ(CompHand) === true){
 
 };
 
-
-
+//Moved from above to only reset Win/Loss record on the first run
+winsLosses[0] = 0
+winsLosses[1] = 0
+document.getElementById("record").rows[2].cells[0].innerHTML = 0
+document.getElementById("record").rows[2].cells[1].innerHTML = 0
 new_game()
 
 
