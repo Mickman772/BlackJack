@@ -218,6 +218,9 @@ var new_game = function(){
         while (bet < 0){
         	bet=prompt("Nice try! You can't bet a negative quantity.  Please enter your bet", "0")
         }
+      	while (isNaN(bet)){
+	        bet=prompt("I don't understand.  Please enter your bet", "0")
+	    }
         chips -= bet;
 
         document.getElementById("record").rows[0].innerHTML = "Chips = " + chips
